@@ -47,19 +47,22 @@ export default function Header() {
         </div>
 
         {/* Botón Hamburguesa */}
-        <button className="md:hidden text-gray-700 z-50" onClick={() => setMenuAbierto(!menuAbierto)}>
+        <button 
+          className={`md:hidden z-50 ${menuAbierto ? 'text-white' : 'text-gray-700'}`} 
+          onClick={() => setMenuAbierto(!menuAbierto)}
+        >
           {menuAbierto ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Menú Móvil Desplegable */}
+      {/* Menú Móvil Desplegable (Estilo Oscuro) */}
       {menuAbierto && (
-        <div className="absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-8 text-lg font-medium md:hidden z-40">
-          <Link href="/" onClick={() => setMenuAbierto(false)}>Inicio</Link>
-          <Link href="/catalogo" onClick={() => setMenuAbierto(false)}>Catálogo</Link>
-          <Link href="/explorar" onClick={() => setMenuAbierto(false)}>Explorar</Link>
-          <Link href="/colecciones" onClick={() => setMenuAbierto(false)}>Colecciones</Link>
-          <Link href="/nosotros" onClick={() => setMenuAbierto(false)}>Acerca de nosotros</Link>
+        <div className="absolute top-0 left-0 w-full h-screen bg-[#1e2336] flex flex-col items-center justify-center gap-8 text-xl font-medium text-white md:hidden z-40">
+          <Link href="/" onClick={() => setMenuAbierto(false)} className="hover:text-yellow-500 transition">Inicio</Link>
+          <Link href="/catalogo" onClick={() => setMenuAbierto(false)} className="hover:text-yellow-500 transition">Catálogo</Link>
+          <Link href="/explorar" onClick={() => setMenuAbierto(false)} className="hover:text-yellow-500 transition">Explorar</Link>
+          <Link href="/colecciones" onClick={() => setMenuAbierto(false)} className="hover:text-yellow-500 transition">Colecciones</Link>
+          <Link href="/nosotros" onClick={() => setMenuAbierto(false)} className="hover:text-yellow-500 transition">Acerca de nosotros</Link>
         </div>
       )}
     </nav>
